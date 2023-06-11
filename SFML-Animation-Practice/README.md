@@ -1,1 +1,0 @@
-﻿# SFML Animation Practice

@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <RootNamespace>SFML_Animation_Practice</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="SFML.Net" Version="2.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="AnimationImages\C0fear01.png" />
+      <None Remove="AnimationImages\C0fear02.png" />
+      <None Remove="AnimationImages\C0fear03.png" />
+      <None Remove="AnimationImages\C0fear04.png" />
+      <None Remove="AnimationImages\C0fear05.png" />
+      <None Remove="AnimationImages\C0fear06.png" />
+      <None Remove="AnimationImages\C0fear07.png" />
+      <None Remove="AnimationImages\C0fear08.png" />
+      <None Remove="AnimationImages\C0fear09.png" />
+      <None Remove="AnimationImages\C0fear10.png" />
+      <None Remove="AnimationImages\C0fear11.png" />
+      <None Remove="AnimationImages\C0fear12.png" />
+      <None Remove="AnimationImages\C0fear13.png" />
+      <None Remove="AnimationImages\C0fear14.png" />
+      <None Remove="AnimationImages\C0fear15.png" />
+      <None Remove="AnimationImages\C0fear16.png" />
+      <None Remove="AnimationImages\C0fear17.png" />
+      <None Remove="AnimationImages\C0fear18.png" />
+      <None Remove="AnimationImages\C0fear19.png" />
+      <None Remove="AnimationImages\C0fear20.png" />
+      <None Remove="AnimationImages\C0fear21.png" />
+      <None Remove="AnimationImages\C0fear22.png" />
+      <None Remove="AnimationImages\C0fear23.png" />
+      <None Remove="AnimationImages\C0fear24.png" />
+      <None Remove="AnimationImages\C0fear25.png" />
+      <None Remove="AnimationImages\C0fear26.png" />
+      <None Remove="AnimationImages\C0fear27.png" />
+      <None Remove="AnimationImages\C0fear28.png" />
+      <None Remove="AnimationImages\C0fear29.png" />
+      <None Remove="AnimationImages\C0fear30.png" />
+      <None Remove="AnimationImages\C0fear31.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="AnimationImages\" />
+    </ItemGroup>
+
+</Project>

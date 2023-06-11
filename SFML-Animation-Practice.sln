@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFML-Animation-Practice", "SFML-Animation-Practice\SFML-Animation-Practice.csproj", "{33491E03-32B7-4AD5-83CF-8D6E5CBB1C32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33491E03-32B7-4AD5-83CF-8D6E5CBB1C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33491E03-32B7-4AD5-83CF-8D6E5CBB1C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33491E03-32B7-4AD5-83CF-8D6E5CBB1C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33491E03-32B7-4AD5-83CF-8D6E5CBB1C32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

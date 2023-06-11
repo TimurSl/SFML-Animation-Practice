@@ -1,6 +1,6 @@
-using agar.io.Engine.Interfaces;
+using SFML_Animation_Practice.Engine.Interfaces;
 
-namespace agar.io.Engine.Types;
+namespace SFML_Animation_Practice.Engine.Types;
 
 public abstract class BaseObject
 {

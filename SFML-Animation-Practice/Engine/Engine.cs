@@ -1,10 +1,10 @@
-using agar.io.Engine.Config;
-using agar.io.Engine.Interfaces;
-using agar.io.Engine.Types;
+using SFML_Animation_Practice.Engine.Config;
+using SFML_Animation_Practice.Engine.Interfaces;
+using SFML_Animation_Practice.Engine.Types;
 using SFML.Graphics;
 using SFML.Window;
 
-namespace agar.io.Engine;
+namespace SFML_Animation_Practice.Engine;
 
 public class Engine
 {

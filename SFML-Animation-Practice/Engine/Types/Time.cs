@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace agar.io.Engine.Types;
+namespace SFML_Animation_Practice.Engine.Types;
 
 public static class Time
 {

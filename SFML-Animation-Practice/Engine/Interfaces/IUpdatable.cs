@@ -1,4 +1,4 @@
-﻿namespace agar.io.Engine.Interfaces;
+﻿namespace SFML_Animation_Practice.Engine.Interfaces;
 
 public interface IUpdatable
 {

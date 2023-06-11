@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace agar.io.Engine.Extensions;
+namespace SFML_Animation_Practice.Engine.Extensions;
 
 public static class FieldInfoExt
 {

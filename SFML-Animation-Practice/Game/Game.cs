@@ -1,4 +1,5 @@
-﻿using agar.io.Engine.Types;
+﻿using SFML_Animation_Practice.Engine.Types;
+using SFML_Animation_Practice.Game.Objects;
 
 namespace SFML_Animation_Practice.Game;
 
@@ -28,4 +29,5 @@ public class Game : BaseGame
 		animatedObject.Animation.Play();
 		Console.WriteLine("Hello World!");
 	}
+	
 }

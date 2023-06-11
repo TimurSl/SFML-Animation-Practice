@@ -1,8 +1,8 @@
-using agar.io.Engine.Config;
+using SFML_Animation_Practice.Engine.Config;
 using SFML.Graphics;
 using SFML.System;
 
-namespace agar.io.Engine.Types;
+namespace SFML_Animation_Practice.Engine.Types;
 
 public static class Gizmos
 {

@@ -1,8 +1,8 @@
-using agar.io.Engine.Config;
-using agar.io.Engine.Interfaces;
+using SFML_Animation_Practice.Engine.Config;
+using SFML_Animation_Practice.Engine.Interfaces;
 using SFML.Window;
 
-namespace agar.io.Engine.Types;
+namespace SFML_Animation_Practice.Engine.Types;
 
 public abstract class BaseGame
 {

@@ -1,9 +1,9 @@
 using System.Reflection;
 using System.Text;
-using agar.io.Engine.Extensions;
+using SFML_Animation_Practice.Engine.Extensions;
 using SFML.Graphics;
 
-namespace agar.io.Engine.Config;
+namespace SFML_Animation_Practice.Engine.Config;
 
 public class EngineConfiguration
 {

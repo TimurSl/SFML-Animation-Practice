@@ -28,7 +28,7 @@ public class AnimatedObject : BaseObject, IDrawable
 		{
 			Texture texture = new Texture(files[i]);
 
-			AnimationKeyFrame keyFrame = AnimationKeyFrameFactory
+			AnimationKeyFrame keyFrame = AnimationKeyFrameBuilder
 				.CreateKeyFrame(i * 0.05f)
 				.SetTexture(texture);
 

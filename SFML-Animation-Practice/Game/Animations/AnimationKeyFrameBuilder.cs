@@ -2,7 +2,7 @@
 
 namespace SFML_Animation_Practice.Game.Animations;
 
-public static class AnimationKeyFrameFactory
+public static class AnimationKeyFrameBuilder
 {
 	private static AnimationKeyFrame currentKeyFrame = new AnimationKeyFrame();
 	

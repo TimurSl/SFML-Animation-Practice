@@ -4,6 +4,7 @@ using SFML_Animation_Practice.Engine.Types;
 using SFML_Animation_Practice.Game.Animations;
 using SFML_Animation_Practice.Game.Extensions;
 using SFML.Graphics;
+using SFML.System;
 
 namespace SFML_Animation_Practice.Game.Objects;
 
@@ -15,16 +16,18 @@ public class AnimatedObject : BaseObject, IDrawable
 	
 	public AnimatedObject()
 	{
-		Shape = new RectangleShape(new SFML.System.Vector2f(100, 100));
+		Shape = new RectangleShape(new Vector2f(100, 100));
 		Shape.Position = new SFML.System.Vector2f(EngineConfiguration.WindowWidth / 2, EngineConfiguration.WindowHeight / 2);
 		Shape.Origin = new SFML.System.Vector2f(Shape.Size.X / 2, Shape.Size.Y / 2);
-		Shape.Scale = new SFML.System.Vector2f(5, 5);
+		Shape.Scale = new SFML.System.Vector2f(1, 1);
 
 		Animation = new(Shape);
 		string[] files = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory (), "AnimationImages"));
+		
 		for (var i = 0; i < files.Length; i++)
 		{
 			Texture texture = new Texture(files[i]);
+
 			AnimationKeyFrame keyFrame = AnimationKeyFrameFactory
 				.CreateKeyFrame(i * 0.05f)
 				.SetTexture(texture);

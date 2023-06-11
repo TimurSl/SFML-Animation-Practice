@@ -1,5 +1,6 @@
 ﻿using SFML_Animation_Practice.Engine.Interfaces;
 using SFML.Graphics;
+using SFML.System;
 using Time = SFML_Animation_Practice.Engine.Types.Time;
 
 namespace SFML_Animation_Practice.Game.Animations;

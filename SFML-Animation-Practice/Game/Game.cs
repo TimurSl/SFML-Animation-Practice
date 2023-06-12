@@ -1,5 +1,6 @@
 ﻿using SFML_Animation_Practice.Engine.Types;
 using SFML_Animation_Practice.Game.Objects;
+using SFML.Window;
 
 namespace SFML_Animation_Practice.Game;
 
@@ -19,8 +20,6 @@ public class Game : BaseGame
 		base.Initialize ();
 		
 		animatedObject = Engine.RegisterActor(new AnimatedObject ()) as AnimatedObject;
-		
-		
 	}
 
 	public override void Run()
@@ -29,5 +28,12 @@ public class Game : BaseGame
 		animatedObject.Animation.Play();
 		Console.WriteLine("Hello World!");
 	}
-	
+
+	protected override void OnFrameEnd()
+	{
+		if (Keyboard.IsKeyPressed(Keyboard.Key.E))
+		{
+			animatedObject.Animation.Play ();
+		}
+	}
 }

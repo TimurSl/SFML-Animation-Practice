@@ -22,17 +22,22 @@ public class AnimatedObject : BaseObject, IDrawable
 		Shape.Scale = new SFML.System.Vector2f(1, 1);
 
 		Animation = new(Shape);
+		Animation.Loop = true;
+		Animation.ResetOnStart = true;
+		
 		string[] files = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory (), "AnimationImages"));
 		
 		for (var i = 0; i < files.Length; i++)
 		{
 			Texture texture = new Texture(files[i]);
+			texture = texture.RemoveColor(new Color(0, 255, 255));
 
 			AnimationKeyFrame keyFrame = AnimationKeyFrameBuilder
 				.CreateKeyFrame(i * 0.05f)
-				.SetTexture(texture);
+				.SetTexture(texture)
+				.SetScaleOffset(new Vector2f(0.5f, 0.5f));
 
-			Animation.KeyFrames.Add(keyFrame);
+			Animation.AddKeyFrame(keyFrame);
 		}
 		
 		Game.Instance.RegisterUpdatable(Animation);

@@ -1,4 +1,5 @@
-﻿using SFML_Animation_Practice.Engine.Interfaces;
+﻿using System.Diagnostics.Contracts;
+using SFML_Animation_Practice.Engine.Interfaces;
 using SFML.Graphics;
 using SFML.System;
 using Time = SFML_Animation_Practice.Engine.Types.Time;
@@ -7,19 +8,24 @@ namespace SFML_Animation_Practice.Game.Animations;
 
 public class Animation : IUpdatable
 {
-	public List<AnimationKeyFrame> KeyFrames { get; set; }
-	public float AnimationSpeedMultiplier { get; set; } = 1f;
 	public bool Loop { get; set; } = true;
+	public bool ResetOnStart { get; set; } = true;
+	public float AnimationSpeedMultiplier { get; set; } = 1f;
 	
-	
+
 	private Shape shape;
 	private int currentKeyFrameIndex = 0;
 	private float currentKeyFrameTime = 0f;
-	
+	private List<AnimationKeyFrame> KeyFrames { get; set; }
+
+	private ShapeAnimationData oldState;
+
 	public Animation(Shape shape)
 	{
 		this.shape = shape;
 		KeyFrames = new List<AnimationKeyFrame>();
+		
+		oldState = new ShapeAnimationData(shape);
 	}
 	
 	public void Update()
@@ -41,6 +47,11 @@ public class Animation : IUpdatable
 		{
 			if (Loop)
 			{
+				if (ResetOnStart)
+				{
+					Reset ();
+				}
+				
 				currentKeyFrameIndex = 0;
 				currentKeyFrameTime = 0f;
 
@@ -56,6 +67,11 @@ public class Animation : IUpdatable
 
 	public void Play()
 	{
+		if (ResetOnStart)
+		{
+			Reset ();
+		}
+		
 		currentKeyFrameIndex = 0;
 		currentKeyFrameTime = 0f;
 
@@ -65,6 +81,10 @@ public class Animation : IUpdatable
 		}
 	}
 
+	public void Reset()
+	{
+		oldState.Reset();
+	}
 	private void ApplyKeyFrameParameters(AnimationKeyFrame keyFrame)
 	{
 		shape.Position += keyFrame.PositionOffset;
@@ -80,5 +100,38 @@ public class Animation : IUpdatable
 	public void AddKeyFrame(AnimationKeyFrame keyFrame)
 	{
 		KeyFrames.Add(keyFrame);
+	}
+}
+
+public class ShapeAnimationData
+{
+	private Texture oldTexture;
+	private Vector2f oldPosition;
+	private float oldRotation;
+	private Vector2f oldScale;
+	private Color oldColor;
+	private float oldAlpha;
+	
+	private Shape shape;
+	
+	public ShapeAnimationData(Shape shape)
+	{
+		this.shape = shape;
+		oldPosition = shape.Position;
+		oldRotation = shape.Rotation;
+		oldScale = shape.Scale;
+		oldColor = shape.FillColor;
+		oldAlpha = shape.FillColor.A;
+		oldTexture = shape.Texture;
+	}
+
+	public void Reset()
+	{
+		shape.Position = oldPosition;
+		shape.Rotation = oldRotation;
+		shape.Scale = oldScale;
+		shape.FillColor = oldColor;
+		shape.FillColor = new Color(shape.FillColor.R, shape.FillColor.G, shape.FillColor.B, (byte)oldAlpha);
+		shape.Texture = oldTexture;
 	}
 }

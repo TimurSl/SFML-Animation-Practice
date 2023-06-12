@@ -22,11 +22,12 @@ public class AnimatedObject : BaseObject, IDrawable
 		Shape.Scale = new SFML.System.Vector2f(1, 1);
 
 		Animation = new(Shape);
-		Animation.Loop = true;
+		Animation.Loop = false;
 		Animation.ResetOnStart = true;
 		
 		string[] files = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory (), "AnimationImages"));
-		
+		files = files.Where(x => x.EndsWith(".png") || x.EndsWith(".jpg") || x.EndsWith(".jpeg")).ToArray();
+
 		for (var i = 0; i < files.Length; i++)
 		{
 			Texture texture = new Texture(files[i]);

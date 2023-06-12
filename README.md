@@ -35,6 +35,7 @@ During the development, the following tasks were completed:
 The following features and improvements can be considered for future development:
 1. Refactor code
 2. Put Animations into the Engine for future projects
+3. Make animations work in JSON or XML, or any other data file 
 
 Feel free to contribute to the project by submitting pull requests or opening issues for any bugs or suggestions.
 

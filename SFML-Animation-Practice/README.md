@@ -1,4 +1,0 @@
-# SFML-Animation-Practice
-
-
-Hello, 

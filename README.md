@@ -1,7 +1,7 @@
 
 # SFML Animation Practice
 ## Description
- This project contains the source code of my practiceforo SFML animation
+ This project contains the source code of my practice for SFML animation
 
 ## Structure
 ### Engine - contains all game engine classes

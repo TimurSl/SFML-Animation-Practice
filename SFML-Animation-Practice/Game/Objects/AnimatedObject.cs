@@ -24,7 +24,11 @@ public class AnimatedObject : BaseObject, IDrawable
 		Animation = new(Shape);
 		Animation.Loop = false;
 		Animation.ResetOnStart = true;
-		
+		Animation.OnAnimationEnd += () =>
+		{
+			Destroy ();
+		};
+
 		string[] files = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory (), "AnimationImages"));
 		files = files.Where(x => x.EndsWith(".png") || x.EndsWith(".jpg") || x.EndsWith(".jpeg")).ToArray();
 

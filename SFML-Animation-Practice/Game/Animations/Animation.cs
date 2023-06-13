@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.Contracts;
 using SFML_Animation_Practice.Engine.Interfaces;
 using SFML.Graphics;
-using SFML.System;
 using Time = SFML_Animation_Practice.Engine.Types.Time;
 
 namespace SFML_Animation_Practice.Game.Animations;
@@ -11,7 +10,8 @@ public class Animation : IUpdatable
 	public bool Loop { get; set; } = true;
 	public bool ResetOnStart { get; set; } = true;
 	public float AnimationSpeedMultiplier { get; set; } = 1f;
-	
+	public Action OnAnimationEnd { get; set; }
+
 
 	private Shape shape;
 	private int currentKeyFrameIndex = 0;
@@ -45,6 +45,7 @@ public class Animation : IUpdatable
 		}
 		else
 		{
+			OnAnimationEnd?.Invoke();
 			if (Loop)
 			{
 				if (ResetOnStart)
@@ -61,11 +62,9 @@ public class Animation : IUpdatable
 				}
 			}
 		}
-		
-		
 	}
 
-	public void Play()
+	public void Restart()
 	{
 		if (ResetOnStart)
 		{
@@ -100,38 +99,5 @@ public class Animation : IUpdatable
 	public void AddKeyFrame(AnimationKeyFrame keyFrame)
 	{
 		KeyFrames.Add(keyFrame);
-	}
-}
-
-public class ShapeAnimationData
-{
-	private Texture oldTexture;
-	private Vector2f oldPosition;
-	private float oldRotation;
-	private Vector2f oldScale;
-	private Color oldColor;
-	private float oldAlpha;
-	
-	private Shape shape;
-	
-	public ShapeAnimationData(Shape shape)
-	{
-		this.shape = shape;
-		oldPosition = shape.Position;
-		oldRotation = shape.Rotation;
-		oldScale = shape.Scale;
-		oldColor = shape.FillColor;
-		oldAlpha = shape.FillColor.A;
-		oldTexture = shape.Texture;
-	}
-
-	public void Reset()
-	{
-		shape.Position = oldPosition;
-		shape.Rotation = oldRotation;
-		shape.Scale = oldScale;
-		shape.FillColor = oldColor;
-		shape.FillColor = new Color(shape.FillColor.R, shape.FillColor.G, shape.FillColor.B, (byte)oldAlpha);
-		shape.Texture = oldTexture;
 	}
 }

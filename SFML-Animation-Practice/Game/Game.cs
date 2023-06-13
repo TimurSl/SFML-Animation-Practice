@@ -25,7 +25,7 @@ public class Game : BaseGame
 	public override void Run()
 	{
 		base.Run ();
-		animatedObject.Animation.Play();
+		animatedObject.Animation.Restart();
 		Console.WriteLine("Hello World!");
 	}
 
@@ -33,7 +33,14 @@ public class Game : BaseGame
 	{
 		if (Keyboard.IsKeyPressed(Keyboard.Key.E))
 		{
-			animatedObject.Animation.Play ();
+			animatedObject.Animation.Restart ();
+			animatedObject.Animation.Loop = false;
+		}
+
+		if (Keyboard.IsKeyPressed(Keyboard.Key.R))
+		{
+			animatedObject.Animation.Restart();
+			animatedObject.Animation.Loop = true;
 		}
 	}
 }

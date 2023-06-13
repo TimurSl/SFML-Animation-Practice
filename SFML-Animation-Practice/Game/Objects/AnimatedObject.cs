@@ -16,7 +16,7 @@ public class AnimatedObject : BaseObject, IDrawable
 	
 	public AnimatedObject()
 	{
-		Shape = new RectangleShape(new Vector2f(100, 100));
+		Shape = new RectangleShape(new Vector2f(70, 100));
 		Shape.Position = new SFML.System.Vector2f(EngineConfiguration.WindowWidth / 2, EngineConfiguration.WindowHeight / 2);
 		Shape.Origin = new SFML.System.Vector2f(Shape.Size.X / 2, Shape.Size.Y / 2);
 		Shape.Scale = new SFML.System.Vector2f(1, 1);
@@ -40,21 +40,10 @@ public class AnimatedObject : BaseObject, IDrawable
 			AnimationKeyFrame keyFrame = AnimationKeyFrameBuilder
 				.CreateKeyFrame(i * 0.05f)
 				.SetTexture(texture)
-				.SetScaleOffset(new Vector2f(0.5f, 0.5f));
+				.SetScaleOffset(new Vector2f(0.2f, 0.2f));
 
-			Animation.AddKeyFrame(keyFrame);
+			Animation.KeyFrames.Add(keyFrame);
 		}
-		
-		AnimationKeyFrame keyFrame2 = AnimationKeyFrameBuilder
-			.CreateKeyFrame(0.0f)
-			.SetListener(() =>
-			{
-				// you can put some code here
-			});
-		
-		Animation.AddKeyFrame(keyFrame2);
-		
-		Game.Instance.RegisterUpdatable(Animation);
 	}
 	
 	public void Draw(RenderTarget target)

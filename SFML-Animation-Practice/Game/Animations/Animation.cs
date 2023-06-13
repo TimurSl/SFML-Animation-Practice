@@ -11,12 +11,12 @@ public class Animation : IUpdatable
 	public bool ResetOnStart { get; set; } = true;
 	public float AnimationSpeedMultiplier { get; set; } = 1f;
 	public Action OnAnimationEnd { get; set; }
+	public List<AnimationKeyFrame> KeyFrames { get; set; }
 
 
 	private Shape shape;
 	private int currentKeyFrameIndex = 0;
 	private float currentKeyFrameTime = 0f;
-	private List<AnimationKeyFrame> KeyFrames { get; set; }
 
 	private ShapeAnimationData oldState;
 
@@ -26,6 +26,8 @@ public class Animation : IUpdatable
 		KeyFrames = new List<AnimationKeyFrame>();
 		
 		oldState = new ShapeAnimationData(shape);
+		
+		Game.Instance.RegisterUpdatable(this);
 	}
 	
 	/// <summary>
@@ -107,14 +109,5 @@ public class Animation : IUpdatable
 		shape.Texture = keyFrame.Texture;
 		
 		keyFrame.OnAnimationKeyFrame?.Invoke();
-	}
-
-	/// <summary>
-	/// Adds a keyframe to the animation.
-	/// </summary>
-	/// <param name="keyFrame">The keyframe, can be builded using the AnimationKeyFrameBuilder (static)</param>
-	public void AddKeyFrame(AnimationKeyFrame keyFrame)
-	{
-		KeyFrames.Add(keyFrame);
 	}
 }

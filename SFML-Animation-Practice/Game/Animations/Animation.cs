@@ -28,6 +28,9 @@ public class Animation : IUpdatable
 		oldState = new ShapeAnimationData(shape);
 	}
 	
+	/// <summary>
+	/// Dont call this method directly if you have ZenisoftGameEngine, register to Engine Update, if dont, do all you want.
+	/// </summary>
 	public void Update()
 	{
 		float deltaTime = Time.DeltaTime; 
@@ -83,10 +86,15 @@ public class Animation : IUpdatable
 		}
 	}
 
+	
+	/// <summary>
+	/// Resets the shape to its original state. Can be used to reset the shape after an animation has ended (ResetOnStart doing this).
+	/// </summary>
 	public void Reset()
 	{
 		oldState.Reset();
 	}
+	
 	private void ApplyKeyFrameParameters(AnimationKeyFrame keyFrame)
 	{
 		shape.Position += keyFrame.PositionOffset;
@@ -101,6 +109,10 @@ public class Animation : IUpdatable
 		keyFrame.OnAnimationKeyFrame?.Invoke();
 	}
 
+	/// <summary>
+	/// Adds a keyframe to the animation.
+	/// </summary>
+	/// <param name="keyFrame">The keyframe, can be builded using the AnimationKeyFrameBuilder (static)</param>
 	public void AddKeyFrame(AnimationKeyFrame keyFrame)
 	{
 		KeyFrames.Add(keyFrame);

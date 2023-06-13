@@ -47,4 +47,10 @@ public static class AnimationKeyFrameBuilder
 		keyFrame.Texture = texture;
 		return keyFrame;
 	}
+	
+	public static AnimationKeyFrame SetListener(this AnimationKeyFrame keyFrame, Action onKeyFrame)
+	{
+		keyFrame.OnAnimationKeyFrame = onKeyFrame;
+		return keyFrame;
+	}
 }

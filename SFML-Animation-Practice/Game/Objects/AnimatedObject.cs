@@ -26,7 +26,7 @@ public class AnimatedObject : BaseObject, IDrawable
 		Animation.ResetOnStart = true;
 		Animation.OnAnimationEnd += () =>
 		{
-			Destroy ();
+			// do something
 		};
 
 		string[] files = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory (), "AnimationImages"));
@@ -44,6 +44,15 @@ public class AnimatedObject : BaseObject, IDrawable
 
 			Animation.AddKeyFrame(keyFrame);
 		}
+		
+		AnimationKeyFrame keyFrame2 = AnimationKeyFrameBuilder
+			.CreateKeyFrame(0.0f)
+			.SetListener(() =>
+			{
+				// you can put some code here
+			});
+		
+		Animation.AddKeyFrame(keyFrame2);
 		
 		Game.Instance.RegisterUpdatable(Animation);
 	}

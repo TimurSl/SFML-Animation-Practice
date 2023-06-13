@@ -63,7 +63,10 @@ public class Animation : IUpdatable
 			}
 		}
 	}
-
+	
+	/// <summary>
+	/// Restarts the animation.
+	/// </summary>
 	public void Restart()
 	{
 		if (ResetOnStart)
@@ -94,6 +97,8 @@ public class Animation : IUpdatable
 		shape.FillColor += newColor;
 		shape.FillColor = new Color(shape.FillColor.R, shape.FillColor.G, shape.FillColor.B, (byte)(shape.FillColor.A + keyFrame.AlphaOffset));
 		shape.Texture = keyFrame.Texture;
+		
+		keyFrame.OnAnimationKeyFrame?.Invoke();
 	}
 
 	public void AddKeyFrame(AnimationKeyFrame keyFrame)

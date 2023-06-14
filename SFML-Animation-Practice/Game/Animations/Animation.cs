@@ -21,7 +21,7 @@ public class Animation : IUpdatable
 	private ShapeAnimationData oldState;
 	private bool registered = false;
 
-	public Animation(Shape shape, bool playOnStart)
+	public Animation(Shape shape, bool playOnStart = false)
 	{
 		this.shape = shape;
 		KeyFrames = new List<AnimationKeyFrame>();

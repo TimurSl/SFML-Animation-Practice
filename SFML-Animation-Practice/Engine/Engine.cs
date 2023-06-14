@@ -56,7 +56,7 @@ public class Engine
 		Window.Clear(Color.White);
 		
 		drawables.Sort((drawable, drawable1) => drawable.ZIndex.CompareTo(drawable1.ZIndex));
-		
+
 		foreach (IDrawable drawable in drawables)
 		{
 			if (drawable is BaseObject baseObject && !baseObject.IsInitialized)

@@ -26,7 +26,6 @@ public class Game : BaseGame
 	{
 		base.Run ();
 		animatedObject.Animation.Restart();
-		Console.WriteLine("Hello World!");
 	}
 
 	protected override void OnFrameEnd()

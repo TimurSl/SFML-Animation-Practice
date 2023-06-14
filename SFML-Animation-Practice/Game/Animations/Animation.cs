@@ -40,18 +40,9 @@ public class Animation : IUpdatable
 	/// </summary>
 	public void Update()
 	{
-		float deltaTime = Time.DeltaTime; 
-		currentKeyFrameTime += deltaTime * AnimationSpeedMultiplier; 
 		if (currentKeyFrameIndex < KeyFrames.Count)
 		{
-			if (currentKeyFrameTime >= KeyFrames[currentKeyFrameIndex].Time)
-			{
-				currentKeyFrameIndex++; 
-				if (currentKeyFrameIndex < KeyFrames.Count)
-				{
-					ApplyKeyFrameParameters(KeyFrames[currentKeyFrameIndex]);
-				}
-			}
+			UpdateFrames ();
 		}
 		else
 		{
@@ -59,25 +50,32 @@ public class Animation : IUpdatable
 			if (Loop)
 			{
 				if (ResetOnStart)
-				{
 					Reset ();
-				}
-				
-				currentKeyFrameIndex = 0;
-				currentKeyFrameTime = 0f;
 
-				if (KeyFrames.Count > 0)
-				{
-					ApplyKeyFrameParameters(KeyFrames[currentKeyFrameIndex]);
-				}
+				Start ();
 			}
 		}
 	}
-	
+
+	private void UpdateFrames()
+	{
+		float deltaTime = Time.DeltaTime;
+		currentKeyFrameTime += deltaTime * AnimationSpeedMultiplier;
+
+		if (currentKeyFrameTime >= KeyFrames[currentKeyFrameIndex].Time)
+		{
+			currentKeyFrameIndex++;
+			if (currentKeyFrameIndex < KeyFrames.Count)
+			{
+				ApplyKeyFrameParameters(KeyFrames[currentKeyFrameIndex]);
+			}
+		}
+	}
+
 	/// <summary>
-	/// Restarts the animation.
+	/// Starts the animation. 
 	/// </summary>
-	public void Restart()
+	public void Start()
 	{
 		if (!registered)
 		{

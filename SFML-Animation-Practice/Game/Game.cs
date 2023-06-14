@@ -25,20 +25,20 @@ public class Game : BaseGame
 	public override void Run()
 	{
 		base.Run ();
-		animatedObject.Animation.Restart();
+		animatedObject.Animation.Start();
 	}
 
 	protected override void OnFrameEnd()
 	{
 		if (Keyboard.IsKeyPressed(Keyboard.Key.E))
 		{
-			animatedObject.Animation.Restart ();
+			animatedObject.Animation.Start ();
 			animatedObject.Animation.Loop = false;
 		}
 
 		if (Keyboard.IsKeyPressed(Keyboard.Key.R))
 		{
-			animatedObject.Animation.Restart();
+			animatedObject.Animation.Start();
 			animatedObject.Animation.Loop = true;
 		}
 	}

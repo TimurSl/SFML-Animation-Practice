@@ -50,7 +50,7 @@ public static class AnimationKeyFrameBuilder
 	
 	public static AnimationKeyFrame SetListener(this AnimationKeyFrame keyFrame, Action onKeyFrame)
 	{
-		keyFrame.OnAnimationKeyFrame = onKeyFrame;
+		keyFrame.OnAnimationKeyFrame += onKeyFrame;
 		return keyFrame;
 	}
 }

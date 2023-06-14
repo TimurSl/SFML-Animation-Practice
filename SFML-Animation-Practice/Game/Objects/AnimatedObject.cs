@@ -21,7 +21,7 @@ public class AnimatedObject : BaseObject, IDrawable
 		Shape.Origin = new SFML.System.Vector2f(Shape.Size.X / 2, Shape.Size.Y / 2);
 		Shape.Scale = new SFML.System.Vector2f(1, 1);
 
-		Animation = new(Shape);
+		Animation = new(Shape, playOnStart: true);
 		Animation.Loop = false;
 		Animation.ResetOnStart = true;
 		Animation.OnAnimationEnd += () =>
@@ -41,7 +41,7 @@ public class AnimatedObject : BaseObject, IDrawable
 				.CreateKeyFrame(i * 0.05f)
 				.SetTexture(texture)
 				.SetScaleOffset(new Vector2f(0.2f, 0.2f));
-
+			
 			Animation.KeyFrames.Add(keyFrame);
 		}
 	}

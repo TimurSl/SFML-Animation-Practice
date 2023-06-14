@@ -19,15 +19,20 @@ public class Animation : IUpdatable
 	private float currentKeyFrameTime = 0f;
 
 	private ShapeAnimationData oldState;
+	private bool registered = false;
 
-	public Animation(Shape shape)
+	public Animation(Shape shape, bool playOnStart)
 	{
 		this.shape = shape;
 		KeyFrames = new List<AnimationKeyFrame>();
 		
 		oldState = new ShapeAnimationData(shape);
 		
-		Game.Instance.RegisterUpdatable(this);
+		if (playOnStart)
+		{
+			Game.Instance.RegisterUpdatable(this);
+			registered = true;
+		}
 	}
 	
 	/// <summary>
@@ -74,6 +79,11 @@ public class Animation : IUpdatable
 	/// </summary>
 	public void Restart()
 	{
+		if (!registered)
+		{
+			Game.Instance.RegisterUpdatable(this);
+			registered = true;
+		}
 		if (ResetOnStart)
 		{
 			Reset ();
